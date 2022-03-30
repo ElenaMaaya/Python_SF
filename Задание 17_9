@@ -31,7 +31,7 @@ numbers = [int(x) for x in input("Введите несколько чисел �
 
 element = int(input("Введите любое число:"))
 numbers_sort = insertion_sort(numbers)
-print(numbers_sort)
+#print(numbers_sort)
 
 
 print(binary_search(numbers_sort, element, 0, len(numbers_sort)))
