@@ -1,0 +1,37 @@
+def insertion_sort(num):
+    for i in range(1, len(num)):
+        x = num[i]
+        idx = i
+        while idx > 0 and num[idx - 1] > x:
+            num[idx] = num[idx - 1]
+            idx -= 1
+        num[idx] = x
+    return num
+
+def binary_search(array, element, left, right):
+    if left > right:
+        return False
+    if element > array[-1] or element < array[0]:
+        return print("Введеное число находится вне границ поиска")
+    if element == array[-1]:
+        return print("Введеное число является максимальным в списке")
+    if element == array[0]:
+        return print("Введенное число является минимальным в списке")
+    else:
+        middle = (right + left) // 2
+        if array[middle] >= element:
+            return middle-1
+        elif element < array[middle]:
+            return binary_search(array, element, left, middle - 1)
+        else:
+            return binary_search(array, element, middle + 1, right)
+
+
+numbers = [int(x) for x in input("Введите несколько чисел через пробел: ").split()]
+
+element = int(input("Введите любое число:"))
+numbers_sort = insertion_sort(numbers)
+print(numbers_sort)
+
+
+print(binary_search(numbers_sort, element, 0, len(numbers_sort)))
